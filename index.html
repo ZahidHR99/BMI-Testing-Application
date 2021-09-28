@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>		
+	<link rel="stylesheet" href="style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<title></title>
+</head>
+<body>
+<!------------Start-------------->
+<div class="container"> 
+    <div class="d-flex justify-content-center bg-dark mb-4">
+        <h1 class="text-white">BMI Testing</h1>
+    </div>
+</div>
+<!--------------1----------------------->
+<div class="container" >
+  <h2>BMI Testing Softwere</h2>
+    <p>Enter Your Height and Weight</p>
+
+<table class="tabcontent table table-dark table-striped">
+    <tr>
+        <th>Height (KG) </th>
+        <th><input type="text" id="height" placeholder="height"></th>
+    </tr>
+    <tr>
+        <th>Weight (Inch) </th> 
+        <th><input type="text" id="weight" placeholder="weight"></th>
+    </tr>
+    <tr>
+        <th></th>
+        <th><button onclick="myFunction()" type="button" class="btn btn-primary btn-lg"><span class="spinner-grow spinner-grow-sm"></span>Calculate</button></th>   
+    </tr>
+    <tr>
+        <th>BMI </th>
+        <th><span id="outputBmi"></span></th>
+    </tr>
+</table>
+<br/> 
+<h1>Comment : <span id="comment"></span></h1>
+<br/>   
+</div>   
+<!--------------------------------------> 
+<div class="container" >
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center bg-dark mb-4" >
+    <h6 class="text-white ">Copyright © 2019 w3appsstore.com   </h6>   
+</nav>
+</div>   
+
+<!------------script1-------------------------> 
+<script>
+function myFunction() {
+  var height = parseInt(document.getElementById('height').value);
+  var weight = parseInt(document.getElementById('weight').value);
+  var metre = parseFloat(height/39.37);
+  var bmi = parseFloat(weight/(metre*metre));
+  document.getElementById('outputBmi').innerHTML = bmi;
+   
+    if(bmi<=24 && bmi>=18){
+        document.getElementById('comment').innerHTML = "Normal";
+    }
+    else if(bmi<=30 && bmi>=25){
+        document.getElementById('comment').innerHTML = "Healthy";
+    }
+    else if(bmi<=35 && bmi>=31){
+        document.getElementById('comment').innerHTML = "Fat";
+    }
+    else if(bmi<=100 && bmi>=36){
+        document.getElementById('comment').innerHTML = "Abnormal";
+    }
+    else{
+        document.getElementById('comment').innerHTML = "It's Impossible";   
+    }
+        
+}
+function clean(){
+	document.getElementById('height').innerHTML = "";
+	}
+ 
+</script>
+<!------------End--------------->
+	
+</body>
+</html>
